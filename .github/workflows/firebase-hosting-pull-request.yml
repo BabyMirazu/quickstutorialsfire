@@ -13,5 +13,5 @@ jobs:
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_QUICKSTUTORIALFIRE_28CF1 }}'
-          projectId: quickstutorialfire-28cf1
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_QUICKSTUTORIALSFIRE }}'
+          projectId: quickstutorialsfire

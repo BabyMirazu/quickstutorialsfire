@@ -8,8 +8,11 @@ import { applyMiddleware, combineReducers, createStore } from 'redux';
 import reducer from './redux/reducer';
 import {routerReducer} from 'react-router-redux';
 import { createBrowserHistory } from 'history';
-
+import {initializeApp} from 'firebase/app';
 import routerMiddleware from './redux/middleware';
+
+const firebaseConfig = {};
+initializeApp(firebaseConfig);
 
 const history = createBrowserHistory();
 

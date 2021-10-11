@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import { setUser, setToken } from '../redux/action';
-import {getAuth, signInWithEmailAndPassword} from 'firebase/auth'
+// import {getAuth, signInWithEmailAndPassword} from 'firebase/auth'
 
 const Login = () => {
     let email = React.useRef();
@@ -20,21 +20,20 @@ const Login = () => {
         // .then(() => {
         //     alert('success')
         // })
-        alert('123');
-        // axios.post('http://localhost:8000/api/login', {email: email.value, password: password.value})
-        // .then((response) => {
-        //     const data = response.data
-        //     if (data.message === 'Invalid username or password.') {
-        //         alert('Invalid username or password.');
-        //     } else if (data.message === 'User is not active.') {
-        //         alert('User is not active.');
-        //     } else {
-        //         dispatch(setUser({'email': data.user.email, 'password': data.user.password, 'name': data.user.name}));
-        //         dispatch(setToken({'token': data.token}));
-        //         localStorage.setItem('token', data.token);
-        //         history.push('/');
-        //     }
-        // })
+        axios.post('http://localhost:8000/api/login', {email: email.value, password: password.value})
+        .then((response) => {
+            const data = response.data
+            if (data.message === 'Invalid username or password.') {
+                alert('Invalid username or password.');
+            } else if (data.message === 'User is not active.') {
+                alert('User is not active.');
+            } else {
+                dispatch(setUser({'email': data.user.email, 'password': data.user.password, 'name': data.user.name}));
+                dispatch(setToken({'token': data.token}));
+                localStorage.setItem('token', data.token);
+                history.push('/');
+            }
+        })
     }
 
     return (

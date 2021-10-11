@@ -8,18 +8,18 @@ import LearnCard from '../component/LearnCard';
 import Community from '../component/Community';
 import CommunityMobile from '../component/CommunityMobile';
 import Company from '../component/Company';
-import { useDispatch, useSelector } from 'react-redux';
-//import { useSelector } from 'react-redux';
+// import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import axios from 'axios';
-import {setUser, setToken} from '../redux/action';
+// import {setUser, setToken} from '../redux/action';
 import { getCurrentName } from '../redux/reducer';
 
 const Home = () => {
   const [isScrolled, setIsScrolled] = React.useState(0);
   const name = useSelector(getCurrentName);
   const history = useHistory();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   window.addEventListener('scroll', (e) => {
     if (document.documentElement.scrollTop > 0) {

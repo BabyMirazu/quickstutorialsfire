@@ -37,17 +37,17 @@ const Home = () => {
     const token = localStorage.getItem('token');
   
     if (token) {
-      axios.defaults.headers.common['Authorization'] = `Token ${token}`;
-      // axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-      axios.get('http://localhost:8000/api/home')
-      .then (response => {
-        dispatch(setUser({'email':response.data.user.email, 'password':response.data.user.password, 'name': response.data.user.name}));
-        dispatch(setToken({'token':token}));
-      })
-      .catch((err) => {
-        localStorage.removeItem('token');
-        history.push('/login');
-      })
+      // axios.defaults.headers.common['Authorization'] = `Token ${token}`;
+      // // axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+      // axios.get('http://localhost:8000/api/home')
+      // .then (response => {
+      //   dispatch(setUser({'email':response.data.user.email, 'password':response.data.user.password, 'name': response.data.user.name}));
+      //   dispatch(setToken({'token':token}));
+      // })
+      // .catch((err) => {
+      //   localStorage.removeItem('token');
+      //   history.push('/login');
+      // })
     }
   })
 

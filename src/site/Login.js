@@ -20,6 +20,7 @@ const Login = () => {
         // .then(() => {
         //     alert('success')
         // })
+        alert('123');
         axios.post('http://localhost:8000/api/login', {email: email.value, password: password.value})
         .then((response) => {
             const data = response.data

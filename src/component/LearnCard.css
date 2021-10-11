@@ -1,0 +1,38 @@
+.cardpan {
+    width: 33.33%;
+}
+
+.cardpan .card {
+    height: 100%;
+    padding: 20px 28px;
+    background: transparent;
+    box-shadow: 0 0 5px 0 rgb(0 0 0 / 60%);
+}
+
+.cardpan .card h2 {
+    font-size: 20;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.cardpan .card span {
+    font-size: 14;
+    font-weight: 500;
+    color: #95959C;
+}
+
+.cardpan .card .img {
+    width: 120px;
+    height: 120px;
+    margin: 55px auto 15px 20px;
+}
+
+@media only screen and (max-width: 1024px) {
+    .cardpan {
+        width: 100%;
+    }
+
+    .cardpan .card {
+        max-width: 380px;
+    }
+}

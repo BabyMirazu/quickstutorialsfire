@@ -1,0 +1,117 @@
+.card_item {
+    margin: 10px auto;
+    transition: .3s ease;
+    box-shadow: 0 0 5px 0 rgb(0 0 0 / 60%);
+}
+
+.card_item:hover {
+    opacity: 30%;
+}
+
+.card_item .card {
+    background-color: #15151D;
+    box-shadow: none;
+}
+
+.card_item .card_content {
+    width: 140px;
+    padding: 0px!important;
+}
+
+.card_item .card_content img {
+    width: 140px;
+    height: 120px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.card_item .card_content .name_pan {
+    padding: 10px;
+    border-bottom-left-radius: 5;
+    border-bottom-right-radius: 5;
+    font-size: 12;
+    font-weight: 800;
+    max-width: 140px;
+}
+
+.card_item .card_content .name_pan span {
+    padding-left: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    align-self: center;
+    color: #ffffff;
+}
+
+.card_item .card_content .name_pan .icon_pan {
+    min-width: 34px;
+    min-height: 34px;
+    border: 1px solid #6461C8;
+    border-radius: 50%;
+}
+
+.card_item .card_content .name_pan .icon_pan .icon {
+    width: 18px;
+    height: 18px;
+    margin: auto;
+}
+
+.card_item .blackCard {
+    background-color: #6461C8;
+    position: relative;
+    height: 262px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px 0 rgb(27 27 38 /50%);
+}
+
+.card_item .blackCard .blackPan {
+    position: relative;
+    height: 262px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px 0 rgb(27 27 37 / 60%);
+}
+
+.card_item .blackCard .blackPan .blackTitle {
+    align-self: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 20px;
+    color: #ffffff;
+}
+
+.card_item .blackCard .blackPan .blackButton {
+    top: auto;
+    left: 15px;
+    right: auto;
+    bottom: 15px;
+}
+
+.card_item .blackCard .blackPan .blackButton img {
+    transform: rotate(180deg);
+    height: auto;
+    width: auto;
+}
+
+.card_item .blackCard .blackPan .blackButtonS {
+    top: auto;
+    left: auto;
+    right: 15px;
+    bottom: 15px;
+}
+
+.card_item .blackCard .blackPan .blackButtonS img {
+    height: auto;
+    width: auto;
+}
+
+.card_item .blackCard .blackPan .blackIconPan {
+    position: relative;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    background-color: #15151D;
+}
+
+.card_item .blackCard .blackPan .blackIconPan img {
+    margin: auto;
+}

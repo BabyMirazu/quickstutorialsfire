@@ -1,0 +1,22 @@
+.LogPage {
+    background: #efefef;
+    width: 100%;
+    height: auto;
+    padding-top: 200px;
+    padding-bottom: 200px;
+}
+
+.LogDial {
+    border-radius: 10px;
+    width: 500px;
+    height: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    box-shadow: 0 0 4px 0 rgb(0 0 0 / 60%);
+    background-color: white;
+}
+
+.login-icon {
+    margin-top: 15px;
+    margin-right: 3px;;
+}

@@ -5,13 +5,13 @@ import {AccountCircle, Lock} from '@material-ui/icons';
 import { useDispatch } from 'react-redux';
 // import axios from 'axios';
 import { useHistory } from 'react-router-dom';
-import { setUser, setToken } from '../redux/action';
+// import { setUser, setToken } from '../redux/action';
 import {getAuth, signInWithEmailAndPassword} from 'firebase/auth'
 
 const Login = () => {
     let email = React.useRef();
     let password = React.useRef();
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     const history = useHistory();
 
     const login = () => {

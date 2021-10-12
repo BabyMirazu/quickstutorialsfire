@@ -2,8 +2,9 @@ import React from 'react';
 import { Box, TextField, Button, Typography, Link } from '@material-ui/core';
 import './Register.css';
 import {AccountCircle, Lock, PermIdentity} from '@material-ui/icons';
-import axios from 'axios';
+// import axios from 'axios';
 import { useHistory } from 'react-router-dom/';
+import {getAuth, createUserWithEmailAndPassword} from 'firebase/auth';
 
 const Register = () => {
     let email = React.useRef();
@@ -12,21 +13,27 @@ const Register = () => {
     const history = useHistory();
 
     const register = () => {
-        axios.post('http://localhost:8000/api/register', {email: email.value, password: password.value, name: name.value})
-        .then((response) => {
-            const data = response.data
-            if (data.message === 'User already exists.') {
-            // if (data === 'NErr') {
-                alert('User already exists.');
-            } else if (data.message === 'Unexpected error occured.') {
-            // } else if (data === 'VErr') {
-                alert('Unexpected error occured.');
-                // alert('Verified Error.');
-            } else {
-                alert('success');
-                history.push('/login');
-            }
+        const auth = getAuth()
+        createUserWithEmailAndPassword(auth, email.value, password.value)
+        .then(() => {
+            alert('success');
+            history.push('/login')
         })
+        // axios.post('http://localhost:8000/api/register', {email: email.value, password: password.value, name: name.value})
+        // .then((response) => {
+        //     const data = response.data
+        //     if (data.message === 'User already exists.') {
+        //     // if (data === 'NErr') {
+        //         alert('User already exists.');
+        //     } else if (data.message === 'Unexpected error occured.') {
+        //     // } else if (data === 'VErr') {
+        //         alert('Unexpected error occured.');
+        //         // alert('Verified Error.');
+        //     } else {
+        //         alert('success');
+        //         history.push('/login');
+        //     }
+        // })
     }
 
     return (

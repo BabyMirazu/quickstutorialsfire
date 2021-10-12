@@ -8,18 +8,18 @@ import LearnCard from '../component/LearnCard';
 import Community from '../component/Community';
 import CommunityMobile from '../component/CommunityMobile';
 import Company from '../component/Company';
-// import { useDispatch, useSelector } from 'react-redux';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import axios from 'axios';
-// import {setUser, setToken} from '../redux/action';
+import {setUser, setToken} from '../redux/action';
 import { getCurrentName } from '../redux/reducer';
 
 const Home = () => {
   const [isScrolled, setIsScrolled] = React.useState(0);
   const name = useSelector(getCurrentName);
   const history = useHistory();
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   window.addEventListener('scroll', (e) => {
     if (document.documentElement.scrollTop > 0) {
@@ -37,17 +37,17 @@ const Home = () => {
     const token = localStorage.getItem('token');
   
     if (token) {
-      // axios.defaults.headers.common['Authorization'] = `Token ${token}`;
-      // // axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-      // axios.get('http://localhost:8000/api/home')
-      // .then (response => {
-      //   dispatch(setUser({'email':response.data.user.email, 'password':response.data.user.password, 'name': response.data.user.name}));
-      //   dispatch(setToken({'token':token}));
-      // })
-      // .catch((err) => {
-      //   localStorage.removeItem('token');
-      //   history.push('/login');
-      // })
+      axios.defaults.headers.common['Authorization'] = `Token ${token}`;
+      // axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+      axios.get('http://localhost:8000/api/home')
+      .then (response => {
+        dispatch(setUser({'email':response.data.user.email, 'password':response.data.user.password, 'name': response.data.user.name}));
+        dispatch(setToken({'token':token}));
+      })
+      .catch((err) => {
+        localStorage.removeItem('token');
+        history.push('/login');
+      })
     }
   })
 

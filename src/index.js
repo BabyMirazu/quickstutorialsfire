@@ -11,8 +11,17 @@ import { createBrowserHistory } from 'history';
 import {initializeApp} from 'firebase/app';
 import routerMiddleware from './redux/middleware';
 
-const firebaseConfig = {};
-initializeApp(firebaseConfig);
+const firebaseConfig = {
+  apiKey: "AIzaSyA1P8pOsWcakAZgajInbpsafQYBCDFQztw",
+  authDomain: "quickstutorialsfire.firebaseapp.com",
+  projectId: "quickstutorialsfire",
+  storageBucket: "quickstutorialsfire.appspot.com",
+  messagingSenderId: "68180290033",
+  appId: "1:68180290033:web:f3bce9051b59ba54e17c50",
+  measurementId: "G-06XRPRWCV9"
+};
+
+/*const app = */initializeApp(firebaseConfig);
 
 const history = createBrowserHistory();
 

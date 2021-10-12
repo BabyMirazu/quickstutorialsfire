@@ -6,7 +6,7 @@ import {AccountCircle, Lock} from '@material-ui/icons';
 // import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 // import { setUser, setToken } from '../redux/action';
-import {getAuth, signInWithEmailAndPassword} from 'firebase/auth'
+import {getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup} from 'firebase/auth'
 
 const Login = () => {   
     let email = React.useRef();
@@ -14,12 +14,30 @@ const Login = () => {
     // const dispatch = useDispatch();
     const history = useHistory();
 
+    const googleLogin = () => {
+        const auth = getAuth();
+        const provider = new GoogleAuthProvider()
+        signInWithPopup(auth, provider)
+        .then(() => {
+            alert('success');
+            history.push('/')
+        })
+    }
+
     const login = () => {
         const auth = getAuth();
         signInWithEmailAndPassword(auth, email.value, password.value)
         .then(() => {
             alert('success')
             history.push('/');
+        })
+        .catch((err) => {
+            if (err.code === "auth/invalid-email") {
+                alert('Invalid Email.')
+            } else if (err.code === "auth/wrong-password") {
+                alert('Wrong Password.')
+            }
+            history.push('/login');
         })
         // alert('123');
         // axios.post('http://localhost:8000/api/login', {email: email.value, password: password.value})
@@ -50,11 +68,16 @@ const Login = () => {
                     <TextField type="password" label="password" variant="standard" inputRef={(ref) => {password = ref}}/>
                 </Box>
                 <Box component='div' mt={4} mb={1}>
-                    <Button color='primary' variant='contained' onClick={login}>LogIn</Button>
+                    <Button color='primary' variant='contained' onClick={() => login()}>LogIn</Button>
                 </Box>
                 <Box component='div'>
                     <Link component='a' href="/register">
                         <Typography component='span'>Create a new account?</Typography>
+                    </Link>
+                </Box>
+                <Box component='div'>
+                    <Link component='a' href="#" onClick={() => googleLogin()}>
+                        <Typography component='span'>Using Google Accont?</Typography>
                     </Link>
                 </Box>
                 <Box component='div'>

@@ -14,6 +14,7 @@ const Register = () => {
 
     const register = () => {
         const auth = getAuth()
+        console.log(name)
         createUserWithEmailAndPassword(auth, email.value, password.value)
         .then(() => {
             alert('success');
